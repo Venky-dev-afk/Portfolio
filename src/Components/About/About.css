@@ -1,0 +1,32 @@
+.about{
+    color: white;
+    margin-bottom: 150px;
+}
+
+.head1{
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.aboutme{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile{
+    height: 600px;
+    width: auto;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.p1{
+    text-align: center;
+    font-size: 25px;
+    padding-right: 250px;
+    letter-spacing: 2.5px;
+    max-width: 1000px;
+    text-align: justify;
+    
+}

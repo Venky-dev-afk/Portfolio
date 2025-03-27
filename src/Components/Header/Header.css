@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+.navbar{
+    background: #090a0b;
+    color: white;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display:flex;
+    height: auto;
+    padding-top: 20px;
+}
+
+.head{
+    margin-left: 35px;
+}
+
+.head{
+    font-size: 50px;
+}
+
+ul{
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+
+ul li{
+    display: inline-block;
+    justify-content: space-between;
+    margin: 10px 40px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+
+.navbar li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar ul li{
+    transition: 0.3 ease-in-out;
+}
+
+.navbar ul li:hover{
+    color: red;
+    
+}
+
+.btn{
+    font-family: 'Chakra Petch';
+    font-weight: bolder;
+    margin-right: 35px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.btn:hover{
+    background-color: rgb(255, 24, 24);
+    box-shadow: 0px 15px 20px rgba(106, 102, 102, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.btn:active{
+    transform: translateY(-1px);
+}
