@@ -39,7 +39,7 @@ function Projects() {
       ];
 
   return (
-    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} className='projects-container'>
+    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} className='projects-container' id='projects'>
         <h2 className='projects-heading'>My Projects</h2>
         <div className='projects-grid'>
             {projects.map((project,index) => (

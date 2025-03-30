@@ -9,7 +9,7 @@ const textVariants ={
 
 function Hero() {
   return (
-    <div className='Hero-section'>
+    <div id='home' className='Hero-section'>
       <motion.h1 variants={textVariants} initial="hidden" animate="visible" className='head1'>Welcome to Venkatesh Kumar's</motion.h1>
       <motion.h2 variants={textVariants} initial="hidden" animate="visible" className='head2'>Portfolio Website</motion.h2>
     </div>

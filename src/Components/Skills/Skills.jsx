@@ -26,7 +26,7 @@ function Skills() {
 
   return (
     <>
-    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}}>
+    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} id='skills'>
 
         <h1 className='head1'>SKILLS</h1>
     <div className='skills-section'>

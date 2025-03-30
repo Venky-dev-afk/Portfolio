@@ -11,7 +11,7 @@ function About() {
   };
 
   return (
-    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} className='about'>
+    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} className='about' id='about'>
         <h1 className='head1'>About Me</h1>
         <div className='aboutme'>
         <img src={profile_pic} alt="profile-pic" className='profile' />
