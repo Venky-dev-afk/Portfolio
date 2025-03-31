@@ -1,53 +1,87 @@
-.head1{
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+.skills-container {
+  text-align: center;
+  padding: 50px 10%;
+  background: linear-gradient(135deg, #1e1e1e, #333);
+  color: white;
 }
 
-.skills-section{
-    color: white;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: fit-content;
-    gap: 75px;
-    flex-wrap: wrap;
-    padding: 40px;
-    grid-template-columns: repeat(4, 1fr);
-    margin: 0 auto;
-    padding-bottom: 200px;
-
+.skills-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  font-family: 'Nunito', sans-serif;
 }
 
-.skill-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: #282c34;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 50px;
-    transition: 0.3s;
-    width: 300px;
-    height: 250px;
-    transition: transform 0.2s ease-in-out;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
+.skill-item {
+  width: 230px;
+  height: 230px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  animation: floating 4s ease-in-out infinite;
+}
+
+.skill-item span {
+  font-size: 35px;
+  margin-top: 10px;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 30px var(--hover-color);
+  color: var(--hover-color);
+}
+
+@keyframes floating {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  }
+}
 
 @media (max-width: 768px) {
-    .skills-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
-    }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
   }
-  
-  @media (max-width: 480px) {
-    .skills-container {
-      grid-template-columns: repeat(1, 1fr); /* 1 per row on mobile */
-    }
+  .skill-item {
+    width: 180px;
+    height: 180px;
+    font-size: 1.5rem;
   }
+}
 
-  span{
-    text-align: center;
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 item per row */
   }
+  .skill-item {
+    width: 160px;
+    height: 160px;
+    font-size: 1.3rem;
+  }
+}
+

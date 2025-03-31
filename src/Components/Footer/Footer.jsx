@@ -1,26 +1,24 @@
-import React from 'react'
-import './Footer.css'
-import {FaGithub, FaLinkedin, FaEnvelope} from 'react-icons/fa';
+import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "./Footer.css";
 
-function Footer() {
+const Footer = () => {
   return (
-    <footer className='footer'>
-        <div className='footer-content'>
-            <p>© {new Date().getFullYear()} Venkatesh Kumar V | All Rights Reserved</p>
-        <div className='social-links'>
-            <a href='https://github.com/Venky-dev-afk' target="_blank" rel="noopener noreferrer">
-              <FaGithub/>
-            </a>
-            <a href='https://www.linkedin.com/in/venkatesh-kumar-842588323/' target="_blank" rel="noopener noreferrer">
-              <FaLinkedin/>
-            </a>
-            <a href='mailto:venkateshkumarsbv@gmail.com'>
-              <FaEnvelope/>
-            </a>
-        </div>
-        </div>
+    <footer className="minimal-footer">
+      <div className="social-icons">
+        <a href="https://github.com/Venky-dev-afk" target="_blank" rel="noopener noreferrer">
+          <FaGithub />
+        </a>
+        <a href="https://linkedin.com/in/venkatesh-kumar-842588323" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin />
+        </a>
+        <a href="mailto:venkateshkumarsbv@gmail.com">
+          <FaEnvelope />
+        </a>
+      </div>
+      <p className="copyright">© {new Date().getFullYear()} Venkatesh Kumar V. All rights reserved.</p>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

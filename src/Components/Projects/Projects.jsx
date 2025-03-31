@@ -1,67 +1,87 @@
-import React from 'react'
-import './Projects.css'
-import{motion} from 'framer-motion'
-import virtual_trial from '../../assets/Projects/vtr.jpg'
-import ai_voice from '../../assets/Projects/ai.jpg'
-import event_dash from '../../assets/Projects/events.jpg'
+import React from "react";
+import { motion } from "framer-motion";
+import "./Projects.css";
+import trial from '../../assets/Projects/vtr.jpg'
+import ai from '../../assets/Projects/ai.jpg'
+import news from '../../assets/Projects/news.jpg'
+import fitness from '../../assets/Projects/fitness.png'
 
 
-function Projects() {
-    const textVariants ={
-        hidden : {opacity: 0, y: -50},
-        visible : {opacity: 1, y: 0, transition : {duration: 1}},
-  };
 
-    const projects = [
-        { title: "Virtual Trial Room",
-        description: ["A computer vision-based virtual try-on experience.",
-        "Uses OpenCV & MediaPipe",
-        "Enhances online shopping"
-    ],
-        image:virtual_trial
-        },
+const projects = [
+  {
+    id: 1,
+    title: "Virtual Trial Room",
+    description: "An AI-based virtual try-on experience using OpenCV and MediaPipe.",
+    image: trial,
+    techStack: ["OpenCV", "MediaPipe", "Flask"],
+    link: "https://github.com/Venky-dev-afk",
+  },
+  {
+    id: 2,
+    title: "AI Voice Assistant",
+    description: "A personal AI assistant with speech-to-text and automation.",
+    image: ai,
+    techStack: ["Python", "NLU", "Speech-to-Text"],
+    link: "https://github.com/Venky-dev-afk",
+  },
+  {
+    id: 3,
+    title: "Personalized News Digest",
+    description: "A news aggregation platform with AI-powered summarization.",
+    image: news,
+    techStack: ["Nhost", "React", "n8n", "OpenRouter"],
+    link: "https://github.com/Venky-dev-afk/News-Digest",
+  },
+  {
+    id:4,
+    title:"AI Fitness Tracker",
+    description: "A personalized AI fitness tracker which tracks your exercise form and gives feedback.",
+    image: fitness,
+    techStack: ["Python", "OpenCV", "MediaPipe", "React", "Flask"],
+    link: "https://github.com/Venky-dev-afk/AI-Fitness-Tracker",
+  },
+  
+];
 
-        { title: "AI Voice Assistant", 
-        description: ["An AI-powered voice assistant for task automation.",
-        "Task automation (reminders, emails)",
-        "Web search & interaction"
-        ],
-        image:ai_voice
-        },
-
-        { title: "Event Management Dashboard", 
-        description: ["A full-stack event management platform.",
-        "Attendee tracking system",
-        "Integrates with backend APIs"
-    ], 
-        image:event_dash
-        }
-      ];
-
+const Projects = () => {
   return (
-    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} className='projects-container' id='projects'>
-        <h2 className='projects-heading'>My Projects</h2>
-        <div className='projects-grid'>
-            {projects.map((project,index) => (
-                <div key={index} className='project-card'>
-                    <div className='card-inner'>
-                        <div className='card-front' style={{backgroundImage: `url(${project.image})`}}>
-                            <h3 className='project-title'>{project.title}</h3>
-                        </div>
-                        <div className='card-back'>
-                            <h4>Features:</h4>
-                            <ul className='project-list'>
-                                {project.description.map((point,idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </motion.div>
-  )
-}
+    <div className="projects-container">
+        <motion.div
+        id="projects"
+        className="section"
+        initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
+        whileInView={{ opacity: 1, y: 0 }} // Fade in & move up
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }} // Trigger only once
+        >
+      <h2 className="projects-title">My Projects</h2>
+      <motion.div
+        className="carousel"
+        whileTap={{ cursor: "grabbing" }}
+      >
+        <motion.div
+          className="inner-carousel"
+          drag="x"
+          dragConstraints={{ right: 0, left: -((projects.length - 1) * 300) }}
+        >
+          {projects.map((project) => (
+            <motion.div className="project-card" key={project.id}>
+              <img src={project.image} alt={project.title} className="project-image" />
+              <div className="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <button className="visit-btn">View Project</button>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+      </motion.div>
+    </div>
+  );
+};
 
-export default Projects
+export default Projects;

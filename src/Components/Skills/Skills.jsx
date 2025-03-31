@@ -1,44 +1,52 @@
-import React from 'react'
-import './Skills.css'
-import {motion} from 'framer-motion'
-import {FaReact,FaHtml5,FaCss3Alt,FaJsSquare,FaWindows, FaPython} from "react-icons/fa";
-import {SiCplusplus,SiDatabricks,SiMysql} from "react-icons/si"; 
+import React from "react";
+import "./Skills.css";
+import { FaReact, FaPython, FaHtml5, FaCss3, FaJs, FaNodeJs, FaCode } from "react-icons/fa";
+import { SiCplusplus, SiMysql, SiMongodb, SiFlask } from "react-icons/si";
+import { motion} from "framer-motion";
 
 
-function Skills() {
+const skills = [
+  { name: "C++", icon: <SiCplusplus />, color: "#00599C" },
+  { name: "SQL", icon: <SiMysql />, color: "#4479A1" },
+  { name: "OOPS", icon: <FaCode />, color: "#FF7F50" },
+  { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
+  { name: "Flask", icon: <SiFlask />, color: "#000000" },
+  { name: "React", icon: <FaReact />, color: "#61DBFB" },
+  { name: "Python", icon: <FaPython />, color: "#3776AB" },
+  { name: "HTML", icon: <FaHtml5 />, color: "#E34F26" },
+  { name: "CSS", icon: <FaCss3 />, color: "#1572B6" },
+  { name: "JavaScript", icon: <FaJs />, color: "#F7DF1E" },
+  { name: "Node.js", icon: <FaNodeJs />, color: "#68A063" },
+];
 
-    const textVariants ={
-        hidden : {opacity: 0, y: -50},
-        visible : {opacity: 1, y: 0, transition : {duration: 1}},
-  };
-
-    const skills = [
-        {name: "C++", icon: <SiCplusplus />},
-        {name: "Python", icon: <FaPython />},
-        {name: "HTML", icon: <FaHtml5 />},
-        {name: "CSS", icon: <FaCss3Alt />},
-        {name: "JavaScript", icon: <FaJsSquare/>},
-        {name: "React", icon: <FaReact />},
-        {name: "SQL", icon: <SiMysql />},
-        {name: "OOPS", icon: <SiDatabricks />},
-
-    ]
-
+const Skills = () => {
   return (
-    <>
-    <motion.div variants={textVariants} initial="hidden" whileInView="visible" viewport={{once:false, amount:0.3}} id='skills'>
+    <section className="skills-container">
+        <motion.div
+        id="skills"
+        className="section"
+        initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
+        whileInView={{ opacity: 1, y: 0 }} // Fade in & move up
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }} // Trigger only once
+        >
 
-        <h1 className='head1'>SKILLS</h1>
-    <div className='skills-section'>
-        {skills.map((skills, index) => (
-            <motion.div key={index} className='skill-badge' whileHover={{scale:1.1}}>
-                {skills.icon}<span>{skills.name}</span>
-            </motion.div>
+      <h2 className="skills-title">My Skills</h2>
+      <div className="skills-grid">
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className="skill-item"
+            style={{ "--hover-color": skill.color }}
+          >
+            {skill.icon}
+            <span>{skill.name}</span>
+          </div>
         ))}
-    </div>
-        </motion.div>
-    </>
-  )
-}
+      </div>
+      </motion.div>
+    </section>
+  );
+};
 
-export default Skills
+export default Skills;

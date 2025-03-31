@@ -1,33 +1,48 @@
-import React from 'react'
-import './Header.css'
+import { useState, useEffect } from "react";
+import "./Header.css";
 
-function Header () {
-    const downloadResume = () => {
-        const link = document.createElement("a");
-        link.href = "../../../public/1JB21CS171_VENKATESH KUMAR V_RESUME.pdf";
-        link.download = "Venkatesh_Kumar.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
     };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  // Close menu on link click (for mobile)
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
-    <div className='navbar'>
-        <h1 className='head'>Portfolio</h1>
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      {/* Logo */}
+      <div className="logo">VK</div>
 
+      {/* Navigation Links */}
+      <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
         <ul>
-            <li><a href='#home'>Home</a></li>
-            <li><a href='#about'>About</a></li>
-            <li><a href='#skills'>Skills</a></li>
-            <li><a href='#projects'>Projects</a></li>
-
+          <li><a href="#about" onClick={handleLinkClick}>About</a></li>
+          <li><a href="#skills" onClick={handleLinkClick}>Skills</a></li>
+          <li><a href="#projects" onClick={handleLinkClick}>Projects</a></li>
         </ul>
+      </nav>
 
-        <button className='btn' onClick={downloadResume}>Download Resume</button>
-        
-    </div>
-  )
-}
+      {/* Resume Button */}
+      <a href="../../../public/resume.pdf" download="My_Resume.pdf" className="resume-btn">
+        Resume
+      </a>
 
-export default Header
+      {/* Mobile Menu Toggle */}
+      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </div>
+    </header>
+  );
+};
+
+export default Header;

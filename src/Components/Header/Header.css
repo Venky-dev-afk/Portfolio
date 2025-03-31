@@ -1,77 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
-
-.navbar{
-    background: #090a0b;
-    color: white;
-    width: 100%;
+/* Header Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between;
-    display:flex;
-    height: auto;
-    padding-top: 20px;
-}
-
-.head{
-    margin-left: 35px;
-}
-
-.head{
-    font-size: 50px;
-}
-
-ul{
-    flex: 1;
-    list-style: none;
-    text-align: center;
-}
-
-ul li{
-    display: inline-block;
-    justify-content: space-between;
-    margin: 10px 40px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-
-
-.navbar li a{
-    text-decoration: none;
-    color: inherit;
-}
-
-.navbar ul li{
-    transition: 0.3 ease-in-out;
-}
-
-.navbar ul li:hover{
-    color: red;
-    
-}
-
-.btn{
-    font-family: 'Chakra Petch';
-    font-weight: bolder;
-    margin-right: 35px;
-    padding: 10px 15px;
+    padding: 15px 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  /* Add Background When Scrolled */
+  .navbar.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Prevent Sections from Being Hidden */
+  .first-section {
+    margin-top: 80px; /* Adjust based on navbar height */
+  }
+  
+  /* Logo (Initials) */
+  .logo {
+    font-family: 'Monoton', cursive;
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #22d3ee, #ff6a88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
+    transform: skew(-10deg);
+    display: inline-block;
+  }
+  
+  /* Navigation Container */
+  .nav-links {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  /* Navigation Links */
+  .nav-links ul {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+  }
+  
+  .nav-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Underline Animation */
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #22d3ee;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Resume Button */
+  .resume-btn {
+    background: rgb(255, 0, 0);
+    color: white;
     border: none;
-    background-color: #fff;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    outline: none;
-}
-
-.btn:hover{
-    background-color: rgb(255, 24, 24);
-    box-shadow: 0px 15px 20px rgba(106, 102, 102, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-}
-
-.btn:active{
-    transform: translateY(-1px);
-}
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .resume-btn:hover {
+    background: #4359ab;
+  }
+  
+  /* Mobile Responsive */
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      width: 250px;
+      border-radius: 8px;
+      padding: 15px;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    /* Show Menu When Active */
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-links ul {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    /* Close Menu on Link Click */
+    .nav-links ul li a {
+      font-size: 20px;
+    }
+  
+    /* Menu Button */
+    .menu-toggle {
+      display: block;
+    }
+  
+    .resume-btn {
+      font-size: 14px;
+      padding: 8px 14px;
+    }
+  }
+  
