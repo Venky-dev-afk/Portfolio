@@ -31,7 +31,7 @@ const HeroSection = () => {
           <a href="https://github.com/Venky-dev-afk" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
-          <a href="https://www.linkedin.com/in/venkatesh-kumar-842588323" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/venkatesh-kumar-v-842588323/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </a>
           <a href="mailto:venkateshkumarsbv@gmail.com">
