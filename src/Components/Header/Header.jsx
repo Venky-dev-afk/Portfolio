@@ -33,7 +33,7 @@ const Header = () => {
       </nav>
 
       {/* Resume Button */}
-      <a href="../../../public/Updated Resume Venkatesh Kumar V .pdf" download="Venkatesh Kumar V_Resume.pdf" className="resume-btn">
+      <a href="../../../public/Updated Resume Venkatesh Kumar V.pdf" download="Venkatesh Kumar V_Resume.pdf" className="resume-btn">
         Resume
       </a>
 
