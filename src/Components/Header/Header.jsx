@@ -33,7 +33,7 @@ const Header = () => {
       </nav>
 
       {/* Resume Button */}
-      <a href="../../../public/resume.pdf" download="Venkatesh_Resume.pdf" className="resume-btn" rel="noopener noreferrer">
+      <a href="../../../public/resume (3).pdf" download="Venkatesh_Resume.pdf" className="resume-btn" rel="noopener noreferrer">
         Resume
       </a>
 
